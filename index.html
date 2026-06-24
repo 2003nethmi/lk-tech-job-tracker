@@ -64,19 +64,17 @@
     </main>
 
     <script>
-        // 1. මෙතන මුලට https:// කෑල්ල අනිවාර්යයෙන්ම තියෙන්න ඕනේ
+        // 1. නිවැරදි Azure Backend URL එක (https:// සමඟ)
         const API_URL = "https://lk-tech-api-nethmi-hfh9e4dwbrg2fvd3.southeastasia-01.azurewebsites.net";
 
         async function fetchDashboardData() {
             try {
                 // 1. Fetching Analytics for the Graph
-                // පරණ හිට් කරපු ලින්ක් එක වෙනුවට අලුත් API_URL එක Template Literals වලින් සම්බන්ධ කළා
                 const analyticsRes = await fetch(`${API_URL}/analytics`);
                 const analyticsData = await analyticsRes.json();
                 renderChart(analyticsData.analytics);
 
                 // 2. Fetching Total Jobs List
-                // table එකට දත්ත දාන්න නම් /analytics වෙනුවට /jobs endpoint එකට කෝල් කරන්න ඕනේ
                 const jobsRes = await fetch(`${API_URL}/jobs`);
                 const jobsData = await jobsRes.json();
                 
